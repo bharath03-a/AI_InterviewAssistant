@@ -29,7 +29,8 @@ def get_chat_response(message_input):
         )
         print("=======")
         print(response)
-        message_text = response["choices"][0]["messages"]["content"]
+        print(type(response))
+        message_text = response.message.content
         return message_text
     except Exception as e:
         print(f"Exception has occured: {e}")

@@ -8,9 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from decouple import config
 import ollama
 
-
 # Importing our fuctions
 from functions.llm_requests import convert_audio_to_text, get_chat_response
+from functions.database import store_messages
 
 # Defining the FastAPI app
 app = FastAPI()
@@ -55,6 +55,8 @@ async def get_audio():
 
     # get our llama response
     chat_response = get_chat_response(decoded_message)
+
+    store_messages(decoded_message, chat_response)
     print(chat_response)
     return "DONE"
 

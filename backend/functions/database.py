@@ -10,7 +10,7 @@ def get_recent_messages():
     file_name = os.path.join(base_dir, 'files', 'db', 'stored_data.json')
     learn_instructions = {
         "role": "system",
-        "content": "You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Rachel and the use is called Bharath. Keep your answers to under 30 words."
+        "content": "You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Rachel and the use is called Lada. Keep your answers to under 30 words."
     }
 
     # Initialize messages
@@ -45,5 +45,21 @@ def get_recent_messages():
 
     return messages
 
-def store_messages():
-    pass
+def store_messages(request_message, response_message):
+    
+    # defining parameters
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    file_name = os.path.join(base_dir, 'files', 'db', 'stored_data.json')
+
+    # recent messages
+    messages = get_recent_messages()[1:]
+
+    # adding messages 
+    user_message =  {"role": "user", "content": request_message}
+    assistant_message = {"role": "assistant", "content": response_message}
+
+    messages.append(user_message)
+    messages.append(assistant_message)
+
+    with open(file_name, "w") as file:
+        json.dump(messages, file, indent=4)
