@@ -10,7 +10,7 @@ import ollama
 
 # Importing our fuctions
 from functions.llm_requests import convert_audio_to_text, get_chat_response
-from functions.database import store_messages
+from functions.database import reset_messages, store_messages
 
 # Defining the FastAPI app
 app = FastAPI()
@@ -38,6 +38,12 @@ app.add_middleware(
 @app.get("/health")
 async def check_health():
     return {"message": "Heealthy API"} 
+
+# restting the db
+@app.get("/reset/")
+async def reset_db():
+    reset_messages()
+    return {"message": "DB has been reset"}
 
 # Get audio
 @app.get("/audio-get/")

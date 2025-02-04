@@ -2,12 +2,12 @@ import os
 import json
 import random
 
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+file_name = os.path.join(base_dir, 'files', 'db', 'stored_data.json')
+
 # Get recent messages
 def get_recent_messages():
 
-    # defining parameters
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    file_name = os.path.join(base_dir, 'files', 'db', 'stored_data.json')
     learn_instructions = {
         "role": "system",
         "content": "You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Rachel and the use is called Lada. Keep your answers to under 30 words."
@@ -46,10 +46,6 @@ def get_recent_messages():
     return messages
 
 def store_messages(request_message, response_message):
-    
-    # defining parameters
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    file_name = os.path.join(base_dir, 'files', 'db', 'stored_data.json')
 
     # recent messages
     messages = get_recent_messages()[1:]
@@ -63,3 +59,9 @@ def store_messages(request_message, response_message):
 
     with open(file_name, "w") as file:
         json.dump(messages, file, indent=4)
+
+# restting the messages
+def reset_messages():
+
+    open(file_name, "w")
+    pass
