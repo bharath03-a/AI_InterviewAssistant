@@ -20,16 +20,12 @@ def get_chat_response(message_input):
     user_message = {"role": "user", "content": message_input}
 
     messages.append(user_message)
-    print(messages)
 
     try:
         response = ollama.chat(
             model="llama3.2:latest",
             messages=messages,
         )
-        print("=======")
-        print(response)
-        print(type(response))
         message_text = response.message.content
         return message_text
     except Exception as e:
