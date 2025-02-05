@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Title  from './Title';
+import RecordMessage from './RecordMessage';
 
 function Controller() {
   const [isLoading, setIsLoading] = useState(false);
@@ -7,13 +8,20 @@ function Controller() {
 
   const createBlobUrl = (data: any) => {};
 
-  const handleStop = async () => {};
+  const handleStop = async () => {
+    alert('Recording stopped');
+  };
 
   return (
     <div className='h-screen overflow-y-hidden'>
       <Title setMessages={setMessages} />
       <div className='flex flex-col justify-between h-full overflow-y-scroll pb-96'>
-        Place Holder
+        {/* Recorder */}
+        <div className='fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-blue-500 to-green-500'>
+          <div className='"flex justify-center items-center w-full'>
+            <RecordMessage handleStop={handleStop} />
+          </div>
+        </div>
       </div>
     </div>
   )
