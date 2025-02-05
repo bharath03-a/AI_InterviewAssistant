@@ -7,10 +7,10 @@ file_name = os.path.join(base_dir, 'files', 'db', 'stored_data.json')
 
 # Get recent messages
 def get_recent_messages():
-
+    print("get_recent_messages")
     learn_instructions = {
         "role": "system",
-        "content": "You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Rachel and the use is called Lada. Keep your answers to under 30 words."
+        "content": "You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Jessica and the use is called Lada. Keep your answers to under 30 words."
     }
 
     # Initialize messages

@@ -5,6 +5,7 @@ from functions.database import get_recent_messages
 
 # Convert Audio to Text
 def convert_audio_to_text(audio_file):
+    print("convert_audio_to_text")
     try:
         model = whisper.load_model("base")
         transcript = model.transcribe(audio_file)
@@ -16,6 +17,7 @@ def convert_audio_to_text(audio_file):
 
 # llama3.2b model - Get response from the model
 def get_chat_response(message_input):
+    print("get_chat_response")
     messages = get_recent_messages()
     user_message = {"role": "user", "content": message_input}
 

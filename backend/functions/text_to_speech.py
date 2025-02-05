@@ -7,7 +7,7 @@ def convert_text_to_speech(message):
     """
     Function that converts text to speech
     """
-
+    print("convert_text_to_speech")
     body = {
         "text": message,
         "voice_settings": {

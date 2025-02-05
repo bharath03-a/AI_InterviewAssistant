@@ -1,15 +1,57 @@
 import { useState } from 'react'
 import Title  from './Title';
 import RecordMessage from './RecordMessage';
+import axios from 'axios';
 
 function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
 
-  const createBlobUrl = (data: any) => {};
+  const [blob, setBlob] = useState("");
 
-  const handleStop = async () => {
-    alert('Recording stopped');
+  const createBlobUrl = (data: any) => {
+    const blob = new Blob([data], {type: "audio/mpeg"});
+    const url = window.URL.createObjectURL(blob);
+    return url;
+  };
+
+  const handleStop = async (blobUrl: string) => {
+    setIsLoading(true);
+
+    // Append recorded message to messages
+    const myMessage = { sender: "me", blobUrl };
+    const messageArr = [...messages, myMessage];
+
+    // blob url to blob object
+    fetch(blobUrl)
+      .then((res) => res.blob())
+      .then(async (blob) => {
+        // construct audio to file
+        const formData = new FormData();
+        formData.append("file", blob, "myFile.wav")
+
+        // send form data to API endpoint
+        await axios.post("http://localhost:8000/post-audio", formData,
+          {headers: {"Content-Type" : "audio/mpeg"}, responseType: "arraybuffer"}
+         ).then((res: any) => {
+          const blob = res.data
+          const audio = new Audio()
+          
+          audio.src = createBlobUrl(blob);
+
+          // append to audio
+          const botMessage = { sender : "bot", blobUrl: audio.src }
+          messageArr.push(botMessage)
+          setMessages(messageArr);
+
+          // Play audio
+          setIsLoading(false);
+          audio.play();
+         }).catch((err) => {
+          console.error(err.message)
+          setIsLoading(false);
+         });
+      })
   };
 
   return (
