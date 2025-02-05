@@ -8,6 +8,7 @@ def convert_audio_to_text(audio_file):
     print("convert_audio_to_text")
     try:
         model = whisper.load_model("base")
+        print(audio_file)
         transcript = model.transcribe(audio_file)
 
         return transcript["text"]
