@@ -51,11 +51,11 @@ async def post_audio(file: UploadFile = File(...)):
     # Get the saved audio file
     # audio_input = "./files/audio/test_audio.mp3"
 
-    # # save file from frontend
-    # with open(file.filename, "wb") as buffer:
-    #     buffer.write(file.file.read())
+    # save file from frontend
+    with open(file.filename, "wb") as buffer:
+        buffer.write(file.file.read())
 
-    # audio_input = open(file.filename, "rb")
+    audio_input = open(file.filename, "rb")
 
     # Dcoding the audio
     decoded_message = convert_audio_to_text(file.filename)
