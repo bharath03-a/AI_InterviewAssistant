@@ -1,0 +1,26 @@
+[
+    {
+        "role": "user",
+        "content": " Hey hello how are you?"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello Bharath! I'm so glad you're here today. I'm doing fantastic, thanks for asking. Before we dive in, can I offer you a glass of water or anything to make us comfortable?\n\nNow, let's get started! With 2 years of experience as a Data Engineer, I'm excited to learn more about your background and skills. Can you start by telling me what sparked your interest in data engineering?"
+    },
+    {
+        "role": "user",
+        "content": " I am interested in data engineering because I want to work with how the data is loaded from the start and to the end. So data engineering is usually handled from the whole data flow part of the project. So that is a reason I want to work with that."
+    },
+    {
+        "role": "assistant",
+        "content": "I love your perspective on it! You're thinking about the big picture, which is exactly what data engineers do. It's not just about moving data around, but also about designing and implementing systems that scale with the business.\n\nLet's talk about some technical skills. Can you walk me through how you would approach loading data into a data warehouse like Amazon Redshift or Google BigQuery?"
+    },
+    {
+        "role": "user",
+        "content": " Thank you for asking me. I am really interested in BigQuery because I have already been BigQuery for like two years right now and also regarding AWS Redshift. I have used it but I am not comfortable using it completely as much as a uncomfortable BigQuery."
+    },
+    {
+        "role": "assistant",
+        "content": "Wow, that's impressive! Two years of experience with BigQuery is a great foundation to build upon. I'm sure you've had your fair share of experiences with the platform.\n\nHowever, just because you're more comfortable with BigQuery doesn't mean you can't learn and grow from using AWS Redshift as well. As a data engineer, it's essential to be proficient in multiple technologies.\n\nLet's say we have a dataset that's too large to fit into our data warehouse, what would you do to handle this situation?"
+    }
+]

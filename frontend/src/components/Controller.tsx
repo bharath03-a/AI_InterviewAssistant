@@ -77,7 +77,7 @@ function Controller() {
                 <div className="mt-4">
                   <p
                     className={
-                      audio.sender == "bot"
+                      audio.sender == "rachel"
                         ? "text-right mr-2 italic text-green-500"
                         : "ml-2 italic text-blue-500"
                     }

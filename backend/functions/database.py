@@ -10,7 +10,7 @@ def get_recent_messages():
     print("get_recent_messages")
     learn_instructions = {
         "role": "system",
-        "content": "You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Rachel and the candidate name is called Bharath. Keep your answers to under 30 words."
+        "content": "You are interviewing the user for a job as a data engineer. You are Rachel, a hiring manager interviewing Bharath for a Data Engineer role. Bharath has 2 years of experience. Conduct a brief, friendly interview focusing on technical skills and experience. Ask a few relevant, concise questions. Limit each question to 30 words or less. Express enthusiasm for the interview."
     }
 
     # Initialize messages
