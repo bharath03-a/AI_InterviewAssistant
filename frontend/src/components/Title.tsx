@@ -18,7 +18,11 @@ function Title({ setMessages }: Props) {
   const resetConversation = async () => {
     setIsResetting(true);
 
-    await axios.get('http://localhost:8000/reset').then((res) => {
+    await axios.get('http://localhost:8000/reset', {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
       if (res.status == 200) {
         console.log(res.data);
         setMessages([]);
@@ -33,7 +37,7 @@ function Title({ setMessages }: Props) {
 
   return (
     <div className='flex justify-between items-center p-4 bg-blue-950 text-white font-bold shadow'>
-      <div className='italic text-sky-400 text-lg'>Jessica</div>
+      <div className='italic text-sky-400 text-lg'>Rachel</div>
       <button 
         onClick={resetConversation} 
         className={
