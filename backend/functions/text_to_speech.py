@@ -16,7 +16,7 @@ def convert_text_to_speech(message):
         }
     }
 
-    voice_rachel = "LcfcDJNUP1GQjkzn1xUU"
+    voice_rachel = "21m00Tcm4TlvDq8ikWAM"
     
     headers = { "xi-api-key": ELEVEN_LABS_API, 
                "Content-Type": "application/json",
