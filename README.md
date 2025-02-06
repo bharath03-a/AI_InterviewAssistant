@@ -1,6 +1,6 @@
 # AI Interview ChatBot
 
-![Project Header](./img/readme.png)
+![Project Header](./img/r_2.png)
 ## Overview
 
 The **AI Interview ChatBot** is an advanced voice-enabled chatbot application designed to assist users in preparing for job interviews. Developed using React for the frontend and FastAPI for the backend, this application leverages OpenAI's GPT-4 model to simulate realistic interview scenarios, providing users with interactive practice sessions.
